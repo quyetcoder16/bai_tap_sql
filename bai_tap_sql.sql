@@ -224,5 +224,13 @@ GROUP BY lr.res_id
 ORDER BY number_of_like DESC
 LIMIT 2;
 
+-- =============== ques 3: find the person who orders the most
+
+SELECT us.full_name,COUNT(od.user_id) as number_of_order FROM users as us
+LEFT JOIN orders as od
+ON us.user_id = od.user_id
+GROUP BY us.user_id
+ORDER BY number_of_order DESC
+LIMIT 1;
 
 
