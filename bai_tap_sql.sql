@@ -180,3 +180,36 @@ INSERT INTO orders (user_id, food_id, amount, code, arr_sub_id) VALUES
 
 
 SELECT * FROM orders;
+
+-- add data to table like_res because don't have enough data to process
+
+INSERT INTO like_res (user_id, res_id, date_like) VALUES
+(1, 2, '2023-01-01 08:45:00'),
+(3, 4, '2023-01-02 10:20:00'),
+(2, 1, '2023-01-03 12:15:00'),
+(5, 3, '2023-01-04 14:30:00'),
+(4, 6, '2023-01-05 16:45:00'),
+(1, 8, '2023-01-06 18:10:00'),
+(3, 7, '2023-01-07 20:25:00'),
+(2, 5, '2023-01-08 22:40:00'),
+(4, 3, '2023-01-09 09:15:00'),
+(5, 2, '2023-01-10 11:30:00'),
+(1, 4, '2023-01-11 13:45:00'),
+(3, 6, '2023-01-12 15:00:00'),
+(2, 8, '2023-01-13 17:15:00'),
+(4, 1, '2023-01-14 19:30:00'),
+(5, 7, '2023-01-15 21:45:00'),
+(1, 5, '2023-01-16 23:00:00'),
+(3, 2, '2023-01-17 09:30:00'),
+(2, 8, '2023-01-18 11:45:00'),
+(4, 4, '2023-01-19 14:00:00');
+
+-- ===============question 1:  find 5 people who liked restaurant the most
+
+
+SELECT us.user_id , us.full_name , COUNT(lr.user_id) as number_of_like FROM users as us
+LEFT JOIN like_res as lr
+ON us.user_id = lr.user_id
+GROUP BY us.user_id
+ORDER BY number_of_like DESC
+LIMIT 5;
