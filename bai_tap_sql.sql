@@ -213,3 +213,16 @@ ON us.user_id = lr.user_id
 GROUP BY us.user_id
 ORDER BY number_of_like DESC
 LIMIT 5;
+
+-- ============ question 2: find 2 restaurant which have liked the most
+
+
+SELECT res.res_name, COUNT(lr.res_id) as number_of_like FROM restaurants as res
+INNER JOIN like_res as lr
+ON res.res_id = lr.res_id
+GROUP BY lr.res_id 
+ORDER BY number_of_like DESC
+LIMIT 2;
+
+
+
