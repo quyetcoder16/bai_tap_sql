@@ -233,4 +233,13 @@ GROUP BY us.user_id
 ORDER BY number_of_order DESC
 LIMIT 1;
 
+-- ============== ques 4: find people who don't active in the system
 
+SELECT us.user_id , us.full_name FROM users as us
+LEFT JOIN orders as od
+ON us.user_id = od.user_id
+LEFT JOIN like_res as lr
+ON us.user_id = lr.user_id
+LEFT JOIN rate_res as rr
+ON us.user_id = rr.user_id
+WHERE (od.user_id is NULL) AND (lr.user_id is NULL) AND (rr.user_id is NULL);

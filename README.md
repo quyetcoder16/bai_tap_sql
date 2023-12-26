@@ -17,3 +17,9 @@ ques 3 :
     b1 : gộp bảng users left join vs orders (có thể dúng inner join nhưng sẽ không lấy được những người không đặt hàng)
     b2: đếm số đơn đặt hàng
     b3: sort desc + limit 1
+
+ques 4: 
+    b1: gộp bảng users left join vs orders
+    b2: gộp tiếp với left join vs like_res 
+    b3: gộp tiếp vơi left join vs rate_res
+    b4: tìm các user_id null
